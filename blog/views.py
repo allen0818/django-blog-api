@@ -11,6 +11,9 @@ def article_list(request, format=None):
     """
     List all articles, or create a new article
     """
+
+    print('user', request.user) # debug
+
     if request.method == 'GET':
         articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
