@@ -8,6 +8,11 @@ verify_ssl = true
 [packages]
 django = "*"
 djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+celery = "*"
+redis = "*"
+django-celery-results = "*"
+eventlet = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,0 +1,1 @@
+Celery -A apiproject worker -l info -P eventlet

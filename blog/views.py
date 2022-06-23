@@ -6,9 +6,12 @@ from rest_framework import generics
 
 from .models import Article
 from .serializers import ArticleSerializer
+from rest_framework.permissions import IsAuthenticated
+from django.http import HttpResponse
 
 # Create your views here.
 class ArticleList(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
@@ -19,6 +22,10 @@ class ArticleList(generics.ListCreateAPIView):
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+
+def test_celery(request):
+    add.delay(3, 5)
+    pass
 
 # @api_view(['GET', 'POST'])
 # def article_list(request, format=None):
